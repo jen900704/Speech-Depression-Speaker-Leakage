@@ -6,8 +6,8 @@ This repository provides research code for the experimental pipeline used in the
 
 The project studies whether speech-based depression detection models learn depression-related acoustic cues or instead rely on speaker identity information. We use a size-matched speaker-overlap controlled split on the DAIC-WOZ dataset to compare two settings:
 
-* **Training Set A / Speaker-Independent Setting:** no speaker overlap between training and test sets.
-* **Training Set B / Speaker-Overlapped Setting:** partial speaker overlap between training and test sets while keeping the training size and test set fixed.
+- **Training Set A / Speaker-Independent Setting:** no speaker overlap between training and test sets.
+- **Training Set B / Speaker-Overlapped Setting:** partial speaker overlap between training and test sets while keeping the training size and test set fixed.
 
 The repository includes code for generating the controlled data splits, training baseline and DANN-enhanced models, and evaluating both depression classification performance and speaker-identification accuracy.
 
@@ -23,36 +23,36 @@ Because the code depends on local dataset organization, computing environment, r
 
 ### 1. Data Preparation
 
-* `experiment_generator.py`
+- `experiment_generator.py`  
   Generates the size-matched controlled data splits used in the experiments, including the speaker-independent setting and the speaker-overlapped setting.
 
 ### 2. Wav2Vec Linear-Probing Baselines
 
-* `C_run_linear_probing_A.py`
+- `C_run_linear_probing_A.py`  
   Extracts Wav2Vec2-based features and trains a linear classifier under the speaker-independent setting.
 
-* `C_run_linear_probing_B.py`
+- `C_run_linear_probing_B.py`  
   Runs the corresponding linear-probing experiment under the speaker-overlapped setting.
 
 ### 3. DANN-Enhanced Models
 
-* `run_dann_scenario_A_v2.py`
+- `run_dann_A_v2.py`  
   Applies the DANN-enhanced model under the speaker-independent setting.
 
-* `run_dann_B_v2.py`
+- `run_dann_B_v2.py`  
   Applies the DANN-enhanced model under the speaker-overlapped setting.
 
 ### 4. Full Fine-Tuning Baselines
 
-* `replicate_huang_scenario_A_v2.py`
+- `replicate_huang_scenario_A_v2.py`  
   Runs a full fine-tuning baseline under the speaker-independent setting.
 
-* `replicate_huang_scenario_B_v2.py`
+- `replicate_huang_scenario_B_v2.py`  
   Runs a full fine-tuning baseline under the speaker-overlapped setting.
 
 ### 5. Speaker-Identity Evaluation
 
-* `final_unify_probe.py`
+- `final_unify_probe.py`  
   Evaluates speaker-identification accuracy across feature spaces to quantify the extent to which speaker identity is retained.
 
 ## Quick Start
@@ -104,7 +104,7 @@ python C_run_linear_probing_B.py
 Speaker-independent setting:
 
 ```bash
-python run_dann_scenario_A_v2.py
+python run_dann_A_v2.py
 ```
 
 Speaker-overlapped setting:
@@ -140,4 +140,3 @@ If you use this code, please cite the corresponding paper:
       url={https://arxiv.org/abs/2604.14354}, 
 }
 ```
-
